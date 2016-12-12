@@ -1,12 +1,13 @@
-<table>
-    <tr *ngFor="let item of (items$ | async)">
-        <td class="description">
-            {{item.description}}
-        </td>
-        <td>
-            <!--<button [routerLink]="course.url">View</button>-->
-        </td>
-    </tr>
-</table>
+<h2>All Items</h2>
 
-<!--<router-outlet></router-outlet>-->
+<h4>Total Items: {{items?.length}}</h4>
+
+<input placeholder="Description" (keyup)="search(input.value)" #input>
+
+<div>
+
+    <item-list *ngIf="filtered" [items]="filtered"></item-list>
+
+</div>
+
+

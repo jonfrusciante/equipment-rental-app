@@ -22,6 +22,7 @@ import { SearchComponent } from './search/search.component';
 import { AddItemComponent } from './add-item/add-item.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { RegisterComponent } from './register/register.component';
+import { ItemListComponent } from './item-list/item-list.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { RegisterComponent } from './register/register.component';
     SearchComponent,
     AddItemComponent,
     LogInComponent,
-    RegisterComponent
+    RegisterComponent,
+    ItemListComponent
   ],
   imports: [
     BrowserModule,

@@ -7,3 +7,4 @@ export * from './menu/menu.component';
 export * from './object/object.component';
 export * from './register/register.component';
 export * from './search/search.component';
+export * from './item-list/item-list.component';

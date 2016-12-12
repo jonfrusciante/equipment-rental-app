@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
-import { ItemsService} from '../shared/model/items.service';
 import { Item } from '../shared/model/item';
+import { ItemsService } from '../shared/model/items.service';
 
 @Component({
   selector: 'app-search',
@@ -10,14 +9,24 @@ import { Item } from '../shared/model/item';
 })
 export class SearchComponent implements OnInit {
 
-  items$: Observable<Item[]>;
+  allItems: Item[];
+  filtered: Item[];
 
   constructor(private itemsService: ItemsService) { }
 
   ngOnInit() {
 
-    this.items$ = this.itemsService.findAllItems();
+    this.itemsService.findAllItems()
+        .do(console.log)
+        .subscribe(
+          items => this.allItems = this.filtered = items
+        )
 
-  }
+    }
 
+    search(search:string) {
+
+        this.filtered = this.allItems.filter(item => item.description.includes(search));
+
+    }
 }
