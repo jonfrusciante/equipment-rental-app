@@ -15,8 +15,10 @@
       "../node_modules/@types"
     ],
     "types": [
-      "node",
-      "firebase"
+      "node"
+    ],
+    "exclude": [
+        "node_modules"
     ]
   }
 }

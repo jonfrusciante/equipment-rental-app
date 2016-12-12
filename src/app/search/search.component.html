@@ -1,0 +1,12 @@
+<table>
+    <tr *ngFor="let item of (items$ | async)">
+        <td class="description">
+            {{item.description}}
+        </td>
+        <td>
+            <!--<button [routerLink]="course.url">View</button>-->
+        </td>
+    </tr>
+</table>
+
+<!--<router-outlet></router-outlet>-->
