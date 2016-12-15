@@ -23,7 +23,6 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
 
-// this.itemsService.findAllItems usunąć - 
 
     this.itemsService.findAllItems()
       .do(console.log)
@@ -40,7 +39,8 @@ export class SearchComponent implements OnInit {
   search(model: ISearchItem) {
 
     this.itemsService.getItemsByFilter(model.description, model.cost)
-        .subscribe(items => this.allItems = items)
+        .do(console.log)
+        .subscribe(items => this.filtered = items)
     this.listChange.emit(this.items);
     this.submitted = true;
     return false;
