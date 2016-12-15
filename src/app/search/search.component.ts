@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Item } from '../shared/model/item';
+import { ISearchItem } from '../shared/model/searchItem';
 import { ItemsService } from '../shared/model/items.service';
 
 @Component({
@@ -9,24 +11,38 @@ import { ItemsService } from '../shared/model/items.service';
 })
 export class SearchComponent implements OnInit {
 
+  @Input() items: Item[];
+  @Output() listChange: EventEmitter<Item[]> = new EventEmitter<Item[]>();
+  public myForm: FormGroup;
+  public submitted: boolean;
+  public event: any[] = [];
   allItems: Item[];
   filtered: Item[];
 
-  constructor(private itemsService: ItemsService) { }
+  constructor(private itemsService: ItemsService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
 
+// this.itemsService.findAllItems usunąć - 
+
     this.itemsService.findAllItems()
-        .do(console.log)
-        .subscribe(
-          items => this.allItems = this.filtered = items
-        )
+      .do(console.log)
+      .subscribe(
+      items => this.allItems = this.filtered = items
+      )
 
-    }
+    this.myForm = this.formBuilder.group({
+        description: new FormControl(''),
+        cost: new FormControl('')
+      })
+  }
 
-    search(search:string) {
+  search(model: ISearchItem) {
 
-        this.filtered = this.allItems.filter(item => item.description.includes(search));
-
-    }
+    this.itemsService.getItemsByFilter(model.description, model.cost)
+        .subscribe(items => this.allItems = items)
+    this.listChange.emit(this.items);
+    this.submitted = true;
+    return false;
+  }
 }
