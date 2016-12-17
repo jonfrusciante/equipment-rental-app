@@ -20,11 +20,11 @@ export class ItemDetailComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.route.params.switchMap(params => {
-    //         const $key = params['id'];
-    //         return this.itemsService.findItemByKey($key);
-    //     })
-    //     .subscribe(item => this.item = item);
+    this.route.params.switchMap(params => {
+            const $key = params['id'];
+            return this.itemsService.findItemByKey($key);
+        })
+        .subscribe(item => this.item = item);
   }
 
 }
