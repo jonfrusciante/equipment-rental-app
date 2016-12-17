@@ -1,6 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-import { ItemsService} from '../shared/model/items.service';
 import { Item } from '../shared/model/item';
 
 @Component({
@@ -13,13 +12,10 @@ export class ItemListComponent implements OnInit {
   @Input()
   items: Item[];
 
-  items$: Observable<Item[]>
 
-  constructor(private itemsService: ItemsService) { }
+  constructor() { }
 
   ngOnInit() {
-
-  this.items$ = this.itemsService.findAllItems();
 
   }
 

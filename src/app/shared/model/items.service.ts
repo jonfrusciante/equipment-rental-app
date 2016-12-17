@@ -15,10 +15,10 @@ export class ItemsService {
         return this.db.list('items').map(Item.fromJsonArray);
     }
 
-    getItemsByFilter(description: string, cost: number): Observable<Item[]> {
-
+    getItemsByFilter(description: string, cost: string): Observable<Item[]> {
         return this.db.list('items', { 
             query:{
+                orderByKey: true,
                 equalTo: description, cost
         }}).map(Item.fromJsonArray)
     }

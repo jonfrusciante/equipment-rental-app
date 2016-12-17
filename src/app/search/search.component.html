@@ -2,7 +2,7 @@
 
 <h4>Total Items: {{items?.length}}</h4>
 
-<form [formGroup]="myForm" (ngSubmit)="search(myForm.value, myForm.valid)" class="form-search">
+<form [formGroup]="form" (ngSubmit)="search(form.value)" class="form-search">
     <div class='form-group'>
         <label>Opis</label>
         <input type="text" class="form-control" id="description" formControlName="description" placeholder="Opis" #input>

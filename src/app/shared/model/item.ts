@@ -5,11 +5,11 @@ export class Item {
     constructor(
         public $key:string,
         public address:string,
-        public cost:number,
+        public cost:string,
         public description:string,
         public eMail:string,
         public longDescription: string,
-        public phoneNumber:number,
+        public phoneNumber:string,
         public photoUrl:string,
         public postalCode:string,
         public tags:string,
