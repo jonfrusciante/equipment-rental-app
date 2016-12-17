@@ -1,5 +1,4 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { Observable } from 'rxjs/Rx';
 import { Item } from '../shared/model/item';
 
 @Component({
@@ -16,7 +15,6 @@ export class ItemListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
   }
 
 }

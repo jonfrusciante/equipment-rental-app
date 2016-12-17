@@ -15,17 +15,14 @@ export class SearchComponent implements OnInit {
   constructor(private itemsService: ItemsService) { }
 
   ngOnInit() {
-
     this.itemsService.findAllItems()
         .do(console.log)
         .subscribe(
           items => this.allItems = this.filtered = items
         )
-
     }
 
     search(inputDescription:string, inputCost:string) {
-        this.filtered = this.allItems.filter(item => item.description.includes(inputDescription) && item.cost.includes(inputCost))
-                                     
+        this.filtered = this.allItems.filter(item => item.description.includes(inputDescription) && item.cost.includes(inputCost))                                
     }
 }

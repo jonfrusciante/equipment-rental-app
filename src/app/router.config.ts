@@ -1,5 +1,5 @@
 import { Route } from '@angular/router';
-import { AddItemComponent, LogInComponent, MapComponent, ObjectComponent, GearComponent, HomepageComponent, RegisterComponent, SearchComponent } from './pages';
+import { AddItemComponent, LogInComponent, MapComponent, ObjectComponent, GearComponent, HomepageComponent, RegisterComponent, SearchComponent, ItemDetailComponent } from './pages';
 
 export const routerConfig: Route[] = [
 
@@ -21,7 +21,16 @@ export const routerConfig: Route[] = [
     },
     {
         path: 'search',
-        component: SearchComponent
+        children: [
+            {
+                path: ':id',
+                component: ItemDetailComponent
+            },
+            {
+                path: '',
+                component: SearchComponent
+            }
+        ]
     },
     {
         path: 'addItem',

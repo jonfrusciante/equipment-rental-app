@@ -15,11 +15,13 @@ export class ItemsService {
         return this.db.list('items').map(Item.fromJsonArray);
     }
 
-    getItemsByFilter(description: string, cost: string): Observable<Item[]> {
-        return this.db.list('items', { 
-            query:{
-                orderByKey: true,
-                equalTo: description, cost
-        }}).map(Item.fromJsonArray)
-    }
+    // findItemByKey($key:string):Observable<Item> {
+    //     return this.db.list('items', {
+    //         query: {
+    //             equalTo: $key
+    //         }
+    //     })
+    //     .map(results => Item.fromJson(results[0]))
+    //     .do(console.log);
+    // }
 }

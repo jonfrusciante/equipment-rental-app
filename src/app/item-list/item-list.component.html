@@ -1,17 +1,21 @@
 <table>
-  <tr *ngFor="let item of items">
-    <td>
-      <img [src]='item.photoUrl' [title]='item.description' [style.width.px]='50' [style.margin.px]='2'>
-    </td>
-    <td>
-      {{item.description}}
-    </td>
-    <td>
-      {{item.cost}}
-    </td>
-    <td>
-      {{item.town}}
-    </td>
-    <button>Szczegóły</button>
-  </tr>
+  <tbody>
+    <tr *ngFor="let item of items">
+      <td>
+        <img [src]='item.photoUrl' [title]='item.description' [style.width.px]='50' [style.margin.px]='2'>
+      </td>
+      <td>
+        {{item.description}}
+      </td>
+      <td>
+        {{item.cost}}
+      </td>
+      <td>
+        {{item.town}}
+      </td>
+      <td>
+        <button [routerLink]='item.$key'>Szczegóły</button>
+      </td>
+    </tr> 
+  </tbody>
 </table>

@@ -23,6 +23,7 @@ import { AddItemComponent } from './add-item/add-item.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { RegisterComponent } from './register/register.component';
 import { ItemListComponent } from './item-list/item-list.component';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ItemListComponent } from './item-list/item-list.component';
     AddItemComponent,
     LogInComponent,
     RegisterComponent,
-    ItemListComponent
+    ItemListComponent,
+    ItemDetailComponent
   ],
   imports: [
     BrowserModule,
